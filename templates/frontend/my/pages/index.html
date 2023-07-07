@@ -1,0 +1,34 @@
+{% extends 'frontend/my/layouts/master.html' %}
+{% load static %}
+{% block title %}
+မူလစာမျက်နှာ
+{% endblock title %}
+{% block content %}
+
+<div class="fix-top">
+</div>
+  {% include "frontend/my/partials/carousel.html" %}
+  <!-- body -->
+  <div class="my-container px-5">
+    <div class="row">
+      <!-- left side -->
+      <div class="col-md-9">
+        {% include "frontend/my/partials/latest.html" %}
+        {% include "frontend/my/partials/latest-three.html" %}
+        {% include "frontend/my/partials/statement-post.html" %}
+        {% include "frontend/my/partials/military-post.html" %}
+        {% include "frontend/my/partials/party-post.html" %}
+        
+      </div>
+      <!-- left side -->
+      <!-- right side -->
+      {% include "frontend/my/partials/history-fpncc-northernalliance.html" %}
+      <!-- end of right side -->
+    </div>
+  </div>
+  <!-- end of body -->
+
+  
+
+  
+  {% endblock content %}

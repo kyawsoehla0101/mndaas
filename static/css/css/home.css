@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100&display=swap');
+body{
+    font-family: 'Poppins', sans-serif;
+}
+.my-container{
+    width: 75%;
+    padding-right: var(--bs-gutter-x,.75rem);
+    padding-left: var(--bs-gutter-x,.75rem);
+    margin-right: auto;
+    margin-left: auto;
+}
+.text-title{
+    color:#1c3744
+}
+.text-title:hover{
+    color:red;
+    font-weight: 500;
+    transition: all 0.5s ;
+    
+}
+.text-hover:hover{
+    color:red;
+    font-weight:500;
+    transition:all 0.5s ;
+}
+.back-to-top.active {
+    visibility: visible;
+    opacity: 1;
+}
+.back-to-top {
+    position: fixed;
+    visibility: hidden;
+    opacity: 0;
+    right: 15px;
+    bottom: 15px;
+    z-index: 998;
+    background: #67b0d1;
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    transition: all 0.4s;
+}
+.navbar-brand{
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+.nav{
+    color:white;
+    text-decoration: none;
+}
+.nav:hover{
+    color:white;
+}
+.active{
+    font-weight: bold;
+}
+.nav-item{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.space-between{
+    justify-content: space-between;
+}
+.pointer{
+    cursor: pointer;
+}
+.bold{
+    font-weight: bold;
+}
+.color-white{
+    color: white;
+}
+.width-100{
+    width: 100%;
+}
+.bg-cover{
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+}
+.my-thumbnail{
+    border: 0px;
+}
+.none-text-decoration{
+    text-decoration: none;
+    color: white;
+}
+.none-text-decoration:hover{
+    color: white;
+}
+.bg1{
+    background-image: url(../images/39584c3194b0475a88afdb7a81ce7a26\(2\).png);
+}
+.bg2{
+    background-image: url(../images/MNDAA-troops.-1024x571-1.webp);
+}
+.bg3{
+    background-image: url(../images/117ec6ca-fd35-4900-bf67-41c89c89842b\(2\).jpg);
+}
+.big-img{
+    width:100%;
+    height:700px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.upper-first{
+    margin-top: 10rem;
+}
+@media (max-width : 865px){
+    .upper-second{
+        margin-top: 13rem;
+    }
+}
+
+.big-card-image{
+    width: 100%;
+    height: 250px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-top-left-radius:2px;
+    border-top-right-radius:2px;
+}
+.military-card-image{
+    width: 100%;
+    height: 200px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-top-left-radius:2px;
+    border-top-right-radius:2px;
+}
+.military-card-title{
+    margin-top: -8px;
+}
+.military-card-text{
+    margin-top: -5px;
+}
+.military-card-time{
+    margin-top: -15px;
+}
+.military-card-button{
+    margin-top: -8px;
+}
+.small-card{
+    width: 100%;
+    height: 300px;
+    background-image: url('../images/16589879500.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.fix-top{
+    background-color: white;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+.nav-up{
+    margin-top: 0px !important;
+}
+@media (max-width : 991px ){
+    .statement-header{
+        margin-top: 12px;
+    }
+}
+@media (max-width : 865px ){
+    .upper-second{
+        margin-top: 9rem;
+    }
+}
+.header-line-height{
+    line-height: 33px;
+}
+.body-line-height{
+    line-height: 26px;
+}
+.view-header-line-height{
+    line-height: 38px;
+}
+@media (max-width : 767px ){
+    .four-imgs{
+        height: 200px !important;
+    }
+}
+@media (min-width : 768px) and (max-width : 991px ){
+    .small-news-title{
+        margin-top: 10px;
+    }
+}
+@media (max-width : 575px ){
+    .small-news-title{
+        margin-top: 10px;
+    }
+}
+
+.show-in-mobile{
+    display: none;
+}
+@media (max-width : 767px ){
+    .display-none-in-mobile{
+        display: none;
+    }
+}
+@media (max-width : 767px ){
+    .show-in-mobile{
+        display: initial !important;
+    }
+}
+
+

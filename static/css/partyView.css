@@ -1,0 +1,29 @@
+.party-view-image-mobile{
+    display: none;
+}
+@media (max-width : 767px){
+    .party-view-image-web{
+        display: none !important;
+    }
+    .party-view-image-mobile{
+        display: initial !important;
+    }
+    .party-view-card-title{
+        margin-top: 10px;
+    }
+}
+
+/* icon */
+.facebook-icon:hover{
+    color: #3b5898c9 !important;
+    transition: all 0.3s ease-in-out;
+}
+.twitter-icon:hover{
+    color: rgba(0, 179, 255, 0.777) !important;
+    transition: all 0.3s ease-in-out;
+}
+.instagram-icon:hover{
+    color: #405ce6be !important;
+    transition: all 0.3s ease-in-out;
+}
+

@@ -1,0 +1,127 @@
+{% extends 'frontend/my/layouts/master.html' %} 
+{% load static %} 
+{% block title %}
+အင်တာဗျူး
+{% endblock title %}
+{% block content %}
+
+<!-- party body -->
+<div class="container upper-first upper-second">
+  <!-- upper photo -->
+  {% if latest_interview_post %}
+  <div class="row mt-4">
+    
+    <div class="col-md-6">
+      <div
+        style="
+          background-image: url({{latest_interview_post.image.url}});
+          width: 100%;
+          height: 400px;
+        "
+        class="bg-cover "
+      ></div>
+    </div>
+    <div class="col-md-6">
+      <h5 class="mt-2">{{latest_interview_post.title}}
+      </h5>
+      <p>
+        {{latest_interview_post.description|truncatechars:100|safe}}
+      </p>
+      <i
+        style="font-size: 13px; color: #727272; margin-right: 5px"
+        class="bi bi-clock"
+      ></i
+      ><small class="small-muted" style="color: #727272"
+        >Last updated {{latest_interview_post.created|timesince}} ago</small
+      >
+      <p>
+        <small class="small-muted" style="color: #727272; font-weight: bold"
+          >{{latest_interview_post.get_category_display|upper}}</small
+        >
+      </p>
+      <button
+        class="btn btn-danger"
+        style="
+          background-color: #db3434;
+          border: 1px solid #db3434;
+          font-weight: 600;
+        "
+      >
+        <a
+          class="none-text-decoration"
+          href="{% url 'frontend.en.detail' latest_interview_post.slug  %}"
+          >Read More</a
+        >
+      </button>
+    </div>
+  
+  </div>
+  {% else %}
+  <div class="my-5">
+    <h1 class="text-danger">Sorry!</h1>
+    <h3 class="p-3 my-3 bg-warning text-white">There is no posts.</h3>
+  </div>
+  {% endif %}
+  <!-- end upper photo -->
+
+  <!-- two photo -->
+  <div class="row pb-3">
+    <!-- column -->
+    {% for post in interview_others_posts %}
+    <div class="col-md-6">
+      <div class="card mt-4">
+        <div class="row g-0">
+          <div class="col-lg-6 col-md-12">
+            <div
+              style="
+                background-image: url({{post.image.url}});
+                width: 100%;
+                height: 100%;
+              "
+              class="bg-cover card-img-mobile rounded-start"
+            ></div>
+          </div>
+          <div class="col-lg-6 col-md-12">
+            <div class="card-body">
+              <h5 class="party-two-photo-header">{{post.title}}</h5>
+              <p>
+                {{post.description|truncatechars:100|safe}}
+              </p>
+              <i
+                style="font-size: 13px; color: #727272; margin-right: 5px"
+                class="bi bi-clock"
+              ></i
+              ><small class="small-muted" style="color: #727272"
+                >Last updated {{post.created|timesince}} ago</small
+              >
+              <p>
+                <small
+                  class="small-muted"
+                  style="color: #727272; font-weight: bold"
+                  >{{post.get_category_display|upper}}</small
+                >
+              </p>
+              
+              <a href="{% url 'frontend.en.detail' post.slug  %}"><button
+                class="btn btn-danger"
+                style="
+                  background-color: #db3434;
+                  border: 1px solid #db3434;
+                  font-weight: 600;
+                "
+              >
+                Read More
+              </button></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+
+</div>
+</div>
+<!-- end of party body -->
+
+
+{% endblock content %}

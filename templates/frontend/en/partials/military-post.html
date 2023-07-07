@@ -1,0 +1,42 @@
+{% if military_posts %}
+<div>
+  <div>
+    <h4  class="bold py-2">
+      <span class="py-3">MILITARY</span>
+  </div>
+  <div class="row mt-4">
+   
+    <!-- Statement Post -->
+    {% for post in military_posts %}
+    
+    <div class="col-md-4">
+      <div class="card text-bg-primary mb-3 card-red">
+        <div class="card-image-top big-card-image" style="background-image: url({{post.image.url}});" alt=""></div>
+        
+        <div class="card-body">
+          <a href="{% url 'frontend.en.detail' post.slug %}" class="card-title fs-6 text-decoration-none text-title">{{post.title|truncatechars:90}}</a>
+          <!-- <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem necessitatibus
+            omnis, eum eligendi ullam recusandae ... </p> -->
+            
+            <div class="py-2">
+              <small class="small-muted" style="color:#727272;font-weight: bold;">{{post.get_category_display|upper}}</small>
+            <small class="float-end">  <i style="font-size: 13px;color:#727272;margin-right: 5px;" class="bi bi-clock"></i><small class="small-muted" style="color:#727272">{{post.created|timesince}} ago</small></small>
+           </div>
+          <button class="btn btn-danger btn-sm" style="background-color: #db3434;border: 1px solid #db3434;">
+            <a href="{% url 'frontend.en.detail' post.slug %}" class="none-text-decoration">Read More</a>
+          </button>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+
+
+    <!-- end Statement Post -->
+  </div>
+  
+  <!-- end of Statement -->
+
+  <!-- Military -->
+  
+</div>
+{% endif %}

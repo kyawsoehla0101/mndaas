@@ -1,0 +1,35 @@
+{% if latest %}
+<div>
+  <div>
+    <h4 align="center" style="color: #db3434;border-radius: 5px;" class="mt-4 bold pb-2 pt-2 color-white">
+      <div style="border-bottom:2px solid;" class="d-flex pb-1 space-between">
+        <span>Latest</span>
+          
+      </div>
+    </h4>
+  </div>
+  <div class="row mt-4">
+    <div class="col-md-6">
+      <div style="background-image: url({{latest.image.url}});height:400px;" class="bg-cover"></div>
+    </div>
+    <div class="col-md-6">
+      <a href="{% url 'frontend.en.detail' latest.slug %}" class="statement-header fs-5 text-decoration-none text-danger text-hover">{{latest.title|truncatechars:90}}</a>
+      <div class="py-3">
+        <small class="small-muted badge bg-secondary py-2">{{latest.get_category_display|upper}}</small>
+        <span class="float-end"><i style="font-size: 13px;color:#727272;margin-right: 5px;" class="bi bi-clock "></i><small class="small-muted" style="color:#727272">Last updated {{latest.created|timesince}} ago</small></span>
+      </div>
+      <p>{{latest.description|truncatechars:400|safe}}</p>
+      
+      <button class="btn btn-danger" style="background-color: #db3434;border: 1px solid #db3434;font-weight: 600;">
+        <a href="" class="none-text-decoration">Read Now</a>
+      </button>
+    </div>
+
+  </div>
+</div>
+{% else %}
+<div class="my-5">
+  <h1 class="text-danger">Sorry!</h1>
+  <h3 class="p-3 my-3 bg-warning text-white">There is no posts.</h3>
+</div>
+{% endif %}

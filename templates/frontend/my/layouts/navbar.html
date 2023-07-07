@@ -1,0 +1,144 @@
+<!-- navbar -->
+<nav class="navbar navbar-expand-lg navigation">
+    <span class="container-fluid">
+      <a class="navbar-brand bold" href="{% url 'frontend.my.index' %}">
+        <span class="bold" style="letter-spacing: 1px;color: red;font-size: 26px;">MNDAA</span>
+      </a>
+       <!-- language -->
+       <li class="nav-item dropdown lang ms-auto" style="list-style: none;">
+        <a class="languageMob nav nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          {% if appname == myanmar %}
+              မြန်မာဘာသာ
+          {% elif appname == english %}
+              အင်္ဂလိပ်ဘာသာ
+          {% endif %}
+        </a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="{% url 'frontend.my.index' %}">မြန်မာဘာသာ</a></li>
+          <li><a class="dropdown-item" href="../language/china.html">တရုတ်</a></li>
+          <li><a class="dropdown-item my-dropdown-active" href="{% url 'frontend.en.index' %}">အင်္ဂလိပ်ဘာသာ</a></li>
+        </ul>
+      </li>
+      <!-- end of language -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon">
+          <i style="font-size: 27px;color: #888;" class="bi bi-list"></i>
+        </span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          {% url 'frontend.my.index' as url %}
+          <li class="nav-item">
+            <a class="my-nav nav-link {% if request.path == url %}my-active{% endif %}" href="{% url 'frontend.my.index' %}">
+              မူလစာမျက်နှာ
+            </a>
+          </li>
+          {% url 'frontend.my.news' as url %}
+          <li class="nav-item">
+            <a class="my-nav nav-link {% if request.path == url %}my-active{% endif %}" href="{% url 'frontend.my.news' %}">သတင်း</a>
+          </li>
+          
+          {% url 'frontend.my.statement' as url %}
+          
+          <li class="nav-item">
+            <a class="my-nav nav-link {% if request.path == url %}my-active{% endif %}" href="{% url 'frontend.my.statement' %}">ထုတ်ပြန်ကြေငြာချက်</a>
+          </li>
+          {% url 'frontend.my.speech' as url %}
+  
+          <li class="nav-item">
+            <a class="my-nav nav-link {% if request.path == url %}my-active{% endif %}" href="{% url 'frontend.my.speech' %}">မိန့်ခွန်း</a>
+          </li>  
+          {% url 'frontend.my.interview' as url %}
+  
+           <li class="nav-item">
+            <a class="my-nav nav-link {% if request.path == url %}my-active{% endif %}" href="{% url 'frontend.my.interview' %}">အင်တာဗျူး</a>
+          </li>
+        
+         
+  
+          <!-- drop down -->
+          {% url 'frontend.my.military' as m_url %}
+          {% url 'frontend.my.party' as url %}
+          <li class="nav-item dropdown">
+            <a class="my-nav nav nav-link dropdown-toggle {% if request.path == m_url %}my-active{% endif %}
+            {% if request.path == url %}my-active{% endif %}" href="#" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              အမျိုးသားရေး
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="{% url 'frontend.my.party' %}">ပါတီ</a></li>
+              <li><a class="dropdown-item" href="{% url 'frontend.my.military' %}">စစ်တပ်</a></li>
+            </ul>
+          </li>
+          <!-- end of drop down -->
+  
+          
+  
+          <!-- drop down -->
+          {% url 'frontend.my.fpncc' as fp_url %}
+          {% url 'frontend.my.northernalliance' as na_url %}
+          <li class="nav-item dropdown">
+            <a class="my-nav nav nav-link dropdown-toggle {% if request.path == fp_url %}my-active{% endif %}
+            {% if request.path == na_url %}my-active{% endif %}"  href="#" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              မဟာမိတ်များ
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="{% url 'frontend.my.northernalliance' %}">မြောက်ပိုင်းမဟာမိတ်</a></li>
+              <li><a class="dropdown-item" href="{% url 'frontend.my.fpncc' %}">FPNCC</a></li>
+            </ul>
+          </li>
+          <!-- end of drop down -->
+  
+          <!-- drop down -->
+          {% url 'frontend.my.leader' as l_url %}
+          {% url 'frontend.my.history' as h_url %}
+          <li class="nav-item dropdown">
+            <a class="my-nav nav nav-link dropdown-toggle {% if request.path == l_url %}my-active{% endif %}{% if request.path == h_url %}my-active{% endif %}" href="#" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              အ‌ကြာင်းအရာများ
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="{% url 'frontend.my.history' %}">သမိုင်းကြောင်း</a></li>
+              <li><a class="dropdown-item" href="#">ယဉ်ကျေးမှု</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="{% url 'frontend.my.leader' %}">ခေါင်းဆောင်</a></li>
+            </ul>
+          </li>
+          <!-- end of drop down -->
+  
+          <li class="nav-item">
+            <a class="my-nav nav-link" href="#">ဆက်သွယ်ရန်</a>
+          </li>
+        </ul>
+        
+          <!-- drop down -->
+          <li class="nav-item dropdown lang" style="list-style:none;">
+            <a class="languageWeb nav nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              {% if appname == myanmar %}
+              မြန်မာဘာသာ
+            {% elif appname == english %}
+  
+            အင်္ဂလိပ်ဘာသာ
+            {% endif %}
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="{% url 'frontend.my.index' %}">မြန်မာဘာသာ</a></li>
+              <li><a class="dropdown-item" href="">တရုတ်ဘာသာ</a></li>
+              <li><a class="dropdown-item  {% if request.path == en_url %}my-dropdown-active{% endif %}" href="{% url 'frontend.en.index' %}">အင်္ဂလိပ်ဘာသာ</a></li>
+            </ul>
+          </li>
+          <!-- end of drop down -->
+  
+          <form class="d-flex m-0" role="search">
+            <input class="form-control " type="search" placeholder="ရှာဖွေပါ..." aria-label="Search">
+          </form>
+  
+      </div>
+  </nav>
+  <!-- navbar -->

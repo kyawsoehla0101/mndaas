@@ -1,0 +1,143 @@
+<!-- navbar -->
+<nav class="navbar navbar-expand-lg navigation">
+  <span class="container-fluid">
+    <a class="navbar-brand bold" href="{% url 'frontend.en.index' %}">
+      <span class="bold" style="letter-spacing: 1px;color: red;font-size: 26px;">MNDAA</span>
+    </a>
+     <!-- language -->
+     <li class="nav-item dropdown lang ms-auto" style="list-style: none;">
+      <a class="languageMob nav nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+        aria-expanded="false">
+        {% if appname == english %}
+        English
+        {% elif appname == myanmar %}
+        Myanmar
+        {% endif %}
+      </a>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="{% url 'frontend.my.index' %}">Myanmar</a></li>
+        <li><a class="dropdown-item" href="../language/china.html">China</a></li>
+        <li><a class="dropdown-item my-dropdown-active" href="{% url 'frontend.en.index' %}">English</a></li>
+      </ul>
+    </li>
+    <!-- end of language -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon">
+        <i style="font-size: 27px;color: #888;" class="bi bi-list"></i>
+      </span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+        {% url 'frontend.en.index' as url %}
+    
+        <li class="nav-item">
+          <a class="my-nav nav-link {% if request.path == url %}my-active{% endif %} " href="{% url 'frontend.en.index' %}">
+            Home
+          </a>
+        </li>
+        {% url 'frontend.en.news' as url %}
+       
+        <li class="nav-item">
+          <a class="my-nav nav-link {% if request.path == url %}my-active{% endif %} " href="{% url 'frontend.en.news' %}">News</a>
+        </li>
+        
+ 
+        {% url 'frontend.en.statement' as url %}
+        <li class="nav-item">
+          <a class="my-nav nav-link {% if request.path == url %}my-active{% endif %} " href="{% url 'frontend.en.statement' %}">Statement</a>
+        </li>
+      
+        {% url 'frontend.en.speech' as url %}
+        <li class="nav-item">
+          <a class="my-nav nav-link  {% if request.path == url %}my-active{% endif %} " href="{% url 'frontend.en.speech' %}">Speech</a>
+        </li>  
+
+        {% url 'frontend.en.interview' as url %}
+
+         <li class="nav-item">
+          <a class="my-nav nav-link {% if request.path == url %}my-active{% endif %} " href="{% url 'frontend.en.interview' %}">Interview</a>
+        </li>
+      
+       
+
+        <!-- drop down -->
+        {% url 'frontend.en.military' as m_url %}
+        {% url 'frontend.en.party' as p_url %}
+        <li class="nav-item dropdown">
+          <a class="my-nav nav nav-link dropdown-toggle {% if request.path == m_url %}my-active{% endif %}{% if request.path == p_url %}my-active{% endif %}" href="#" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            Nation
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{% url 'frontend.en.party' %}">Party</a></li>
+            <li><a class="dropdown-item" href="{% url 'frontend.en.military' %}">Military</a></li>
+          </ul>
+        </li>
+        <!-- end of drop down -->
+
+        
+
+        <!-- drop down -->
+        {% url 'frontend.en.northernalliance' as n_url %}
+        {% url 'frontend.en.fpncc' as f_url %}
+        
+        <li class="nav-item dropdown">
+          <a class="my-nav nav nav-link dropdown-toggle {% if request.path == n_url %}my-active{% endif %}{% if request.path == f_url %}my-active{% endif %}"  href="#" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            Alliances
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{% url 'frontend.en.northernalliance' %}">Northern Alliance</a></li>
+            <li><a class="dropdown-item" href="{% url 'frontend.en.fpncc' %}">FPNCC</a></li>
+          </ul>
+        </li>
+        <!-- end of drop down -->
+
+        <!-- drop down -->
+        <li class="nav-item dropdown">
+          <a class="my-nav nav nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            About Us
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">History</a></li>
+            <li><a class="dropdown-item" href="#">Culture</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item" href="#">Leader</a></li>
+          </ul>
+        </li>
+        <!-- end of drop down -->
+
+        <li class="nav-item">
+          <a class="my-nav nav-link" href="#">Contact Us</a>
+        </li>
+      </ul>
+      
+        <!-- drop down -->
+        <li class="nav-item dropdown lang" style="list-style: none;">
+          <a class="languageWeb nav nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            {% if appname == english %}
+            English
+            {% elif appname == myanmar %}
+            Myanmar
+            {% endif %}
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{% url 'frontend.my.index' %}">Myanmar</a></li>
+            <li><a class="dropdown-item" href="">China</a></li>
+            <li><a class="dropdown-item  {% if request.path == en_url %}my-dropdown-active{% endif %}" href="{% url 'frontend.en.index' %}">English</a></li>
+          </ul>
+        </li>
+        <!-- end of drop down -->
+
+        <form class="d-flex m-0" role="search">
+          <input class="form-control " type="search" placeholder="Search" aria-label="Search">
+        </form>
+
+    </div>
+</nav>
+<!-- navbar -->

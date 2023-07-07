@@ -1,0 +1,34 @@
+{% extends 'frontend/en/layouts/master.html' %}
+{% load static %}
+{% block title %}
+Home
+{% endblock title %}
+{% block content %}
+
+<div class="fix-top">
+</div>
+  {% include "frontend/en/partials/carousel.html" %}
+  <!-- body -->
+  <div class="my-container px-5">
+    <div class="row">
+      <!-- left side -->
+      <div class="col-md-9">
+        {% include "frontend/en/partials/latest.html" %}
+        {% include "frontend/en/partials/latest-three.html" %}
+        {% include "frontend/en/partials/statement-post.html" %}
+        {% include "frontend/en/partials/military-post.html" %}
+        {% include "frontend/en/partials/party-post.html" %}
+        
+      </div>
+      <!-- left side -->
+      <!-- right side -->
+      {% include "frontend/en/partials/history-fpncc-northernalliance.html" %}
+      <!-- end of right side -->
+    </div>
+  </div>
+  <!-- end of body -->
+
+  
+
+  
+  {% endblock content %}

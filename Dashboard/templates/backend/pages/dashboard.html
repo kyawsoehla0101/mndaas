@@ -1,0 +1,179 @@
+   {% extends "backend/layouts/master.html" %}
+   
+   {% load static %}
+   {% block content %}
+   <div class="container-fluid">
+      <div class="row me-0 all-row overflow-hidden">
+        <!-- left side -->
+        <div class="col-lg-3 vh-100 g-0 left-side">
+         <img src="{% static 'images/MNDAAcopy.png' %}" class="object-fit-cover main-photo" width="100%" alt="">
+
+
+         <!-- dashboard -->
+         <div class="list-group ps-4 pe-3 mt-4">
+            <ul class="nav flex-column">
+
+               <li class="nav-item">
+                  <a class="nav-link text-danger" aria-current="page" href="#" style="font-weight: 600; font-size: 18px;"><span class="pe-3"><i class="bi bi-terminal-dash"></i></span>Dashboard</a>
+               </li>
+               
+            </ul>
+         </div>
+         <!-- end of dashboard -->
+
+         <hr>
+
+
+         <!-- post -->
+         <div class="list-group ps-4 pe-3 mt-4">
+            <ul class="nav flex-column">
+
+               <li class="nav-item">
+                  <a class="nav-link disabled fs-5 fw-bolder text-uppercase" style="color: #121e2880;">Posts</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link text-danger" aria-current="page" href="{% url 'statementpage' %}" style="font-weight: 600; font-size: 18px; color: rgb(146, 20, 20) !important;"><span class="pe-3"><i class="bi bi-postcard"></i></span>STATEMENT POSTS</a>
+                  <a class="nav-link text-danger" aria-current="page" href="{% url 'militarypage' %}" style="font-weight: 600; font-size: 18px; color: rgb(146, 20, 20) !important;"><span class="pe-3"><i class="bi bi-postcard"></i></span>MMILITARY POSTS</a>
+                  <a class="nav-link text-danger" aria-current="page" href="{% url 'partypage' %}" style="font-weight: 600; font-size: 18px; color: rgb(146, 20, 20) !important;"><span class="pe-3"><i class="bi bi-postcard"></i></span>PARTY POSTS</a>
+                  
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link text-danger" href="{% url 'postcreatepage' %}" style="font-weight: 600; font-size: 18px;"><span class="pe-3"><i class="bi bi-stickies"></i></span>POST CREATE</a>
+               </li>
+            </ul>
+         </div>
+         <!-- end of post -->
+
+         <hr>
+
+         <!-- category -->
+         <div class="list-group ps-4 pe-3 mt-4">
+            <ul class="nav flex-column">
+
+               <li class="nav-item">
+                  <a class="nav-link disabled fs-5 fw-bolder text-uppercase" style="color: #121e2880;">Categories</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link text-danger" aria-current="page" href="#" style="font-weight: 600; font-size: 18px;"><span class="pe-3"><i class="bi bi-list-ul"></i></span> Category All</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link text-danger" href="#" style="font-weight: 600; font-size: 18px;"><span class="pe-3"><i class="bi bi-plus-circle"></i></span> Category Create</a>
+               </li>
+            </ul>
+         </div>
+         <!-- end of category -->
+
+      </div>
+      <!-- end of left side -->
+
+
+
+         <!-- right side -->
+         <div class="col-lg-9 g-0 vh-100 right-side" style="background-color: #80808059">
+            <!-- nav bar -->
+            <nav class="navbar navbar-expand-sm navbar-light bg-light">
+               <div class="container-fluid">
+                  <a class="navbar-brand" href="#">
+                     <h2 class="fw-bold ms-3" style="color: red;text-shadow: 1px 1px 1px black;">
+                        MNDAA ADMIN PANEL
+                     </h2>
+                  </a>
+                  <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
+                     data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
+                     aria-label="Toggle navigation">
+                     <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse flex-grow-0" id="collapsibleNavId">
+
+                     <form class="d-flex ms-auto my-2 my-lg-0">
+                        <input class="form-control me-sm-2" type="text" placeholder="Search">
+                     </form>
+
+                     <div class="d-flex mx-3 align-items-center">
+                        <img class="user-logo d-block rounded-circle mx-2" src="{% static 'images/man.jpg' %}" width="50px"
+                           height="50px" alt="">
+                        <!-- name and language -->
+                        <div class="text-danger text-center">
+                           <div class="dropdown mt-3">
+                              <p align="right" class="text-danger fw-bold dropdown-toggle mb-0" type="button"
+                                 id="triggerId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                 {{request.user.username|upper}}</p>
+                              <p class="mb-0" style="font-size: small; text-align: start;">Admin</p>
+                              <div style="right:0;left:auto;bottom: auto;top: auto;" class="dropdown-menu mb-0"
+                                 aria-labelledby="triggerId">
+                                 <a class="dropdown-item" href="{% url 'logoutpage' %}">Sign Out</a>
+                                 <hr class="my-2">
+                                 <a class="dropdown-item" href="#">Switch accound</a>
+                              </div>
+                           </div>
+                        </div>
+                        <!-- end of name and language -->
+                     </div>
+
+                  </div>
+               </div>
+            </nav>
+            <!-- end of nav bar -->
+
+            <!------------------------- body ---------------------------->
+            <div class="container-fluid">
+               <div class="row vh-100 w-100">
+                  <!-- left side -->
+                  <div class="col-md-6">
+                     <div class="card ms-3 mt-3" style="height: 90vh;">
+                        <div class="card-header">ALL POSTS</div>
+                        <div class="card-body g-5 scroll overflow-scroll">
+                           <div class="d-grid gap-4">
+                             <!-- post -->
+                             {% for post in all_posts %}
+                             {% if request.user.languages == post.user.languages %}
+                              <div class="d-flex gap-3">
+                                 <img width="100px" height="100px" src="{{post.images.url}}"
+                                    class="rounded object-fit-cover" alt="">
+                                 <div class="row">
+                                    <p class="mb-0">{{post.name}}</p>
+                                    <i>
+                                       <small>{{post.category|upper}}</small>
+                                    </i>
+                                    <div class="d-flex gap-3">
+                                       <div class=""><a href="{% url 'postdetailpage' post.slug %}" class="text-primary text-decoration-none">Preview</a>
+                                       </div>
+                                       <div class=""><a href="{% url 'postupdatepage' post.slug %}" class="text-success text-decoration-none">Edit</a></div>
+                                       <div class=""><a href="" class="text-danger text-decoration-none">Delete</a>
+                                       </div>
+                                    </div>
+                                    
+                                 </div>
+                              </div>
+                              {% endif %}
+                              {% endfor %}
+                              <!-- end post -->
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <!-- end of left side -->
+
+                  <!-- right side -->
+                  <div class="col-md-6">
+                     <div class="card mt-3" style="height: 90vh;">
+                        <div class="card-header">Preview</div>
+                        <div class="card-body scroll overflow-scroll">
+                           <h5>Show Title</h5>
+                           <output id="imageOutput" class="mb-1"></output>
+                           <p>Show Category</p>
+                           <p>Show Text</p>
+                        </div>
+                     </div>
+                  </div>
+                  <!-- end of right side -->
+               </div>
+            </div>
+            <!-------------------- end of body --------------------------->
+         </div>
+         <!-- end of right side -->
+      </div>
+   </div>
+
+
+   {% endblock content %}
